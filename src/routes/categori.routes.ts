@@ -16,4 +16,10 @@ categoriRoutes.post('/', (request, response) => {
   return response.status(201).send();
 });
 
+categoriRoutes.get('/', (request, response) => {
+  const allCategories = categoriRepository.list();
+
+  return response.status(200).json(allCategories);
+});
+
 export { categoriRoutes };
