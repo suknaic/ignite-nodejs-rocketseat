@@ -1,11 +1,11 @@
 import express from 'express';
 
+import { categoriRoutes } from './routes/categori.routes';
+
 const app = express();
 
 app.use(express.json());
 
-app.get('/', (request, response) => {
-  response.json({ message: 'hello world' });
-});
+app.use('/categories', categoriRoutes);
 
 app.listen(3333, () => console.log('server is running'));
