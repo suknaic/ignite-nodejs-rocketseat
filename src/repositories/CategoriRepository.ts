@@ -1,11 +1,7 @@
 import Categori from '../model/Categori';
+import { ICreateCategoriDTO, ICategoriRepository } from './ICategoriRepository';
 
-interface ICreateCategoriDTO {
-  name: string;
-  description: string;
-}
-
-class CategoryRepository {
+class CategoryRepository implements ICategoriRepository {
   private categories: Categori[];
   constructor() {
     this.categories = [];

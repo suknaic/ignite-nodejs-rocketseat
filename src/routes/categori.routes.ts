@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import CategoriRepository from '../repositories/CategoriRepository';
+import CreateCategoryService from '../services/CreateCategoryService';
 
 const categoriRoutes = Router();
 const categoriRepository = new CategoriRepository();
@@ -8,16 +9,9 @@ const categoriRepository = new CategoriRepository();
 categoriRoutes.post('/', (request, response) => {
   const { name, description } = request.body;
 
-  const categoriAlredyExistis = categoriRepository.findByName(name);
+  const createCategoryService = new CreateCategoryService(categoriRepository);
 
-  if (categoriRepository) {
-    return response.status(400).json({ error: 'Categori Alredy existis' });
-  }
-
-  categoriRepository.create({
-    name,
-    description,
-  });
+  createCategoryService.execulte({ name, description });
 
   return response.status(201).send();
 });
