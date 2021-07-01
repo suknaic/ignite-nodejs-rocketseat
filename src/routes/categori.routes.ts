@@ -1,23 +1,17 @@
 import { Router } from 'express';
 
-import Categori from '../model/Categori';
+import CategoriRepository from '../repositories/CategoriRepository';
 
 const categoriRoutes = Router();
-
-const categories: Categori[] = [];
+const categoriRepository = new CategoriRepository();
 
 categoriRoutes.post('/', (request, response) => {
   const { name, description } = request.body;
 
-  const category = new Categori();
-
-  Object.assign(category, {
+  categoriRepository.create({
     name,
     description,
-    created_at: new Date(),
   });
-
-  categories.push(category);
 
   return response.status(201).send();
 });
