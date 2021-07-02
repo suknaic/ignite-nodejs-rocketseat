@@ -1,12 +1,12 @@
-import CategoriRepository from '../repositories/fake/CategoriRepository';
+import { ICategoriRepository } from '../../repositories/ICategoriRepository';
 
 interface IRequest {
   name: string;
   description: string;
 }
 
-class CreateCategoryService {
-  constructor(private categoriRepository: CategoriRepository) {}
+class CreateCategoryUseCase {
+  constructor(private categoriRepository: ICategoriRepository) {}
   execulte({ name, description }: IRequest): void {
     const categoriAlredyExistis = this.categoriRepository.findByName(name);
 
@@ -21,4 +21,4 @@ class CreateCategoryService {
   }
 }
 
-export default CreateCategoryService;
+export { CreateCategoryUseCase };
