@@ -7,7 +7,9 @@ const categoriRoutes = Router();
 
 const categoriRepository = new CategoriRepository();
 
-categoriRoutes.post('/', createCategoriController.create);
+categoriRoutes.post('/', (request, response) => {
+  return createCategoriController.create(request, response);
+});
 
 categoriRoutes.get('/', (request, response) => {
   const allCategories = categoriRepository.list();
