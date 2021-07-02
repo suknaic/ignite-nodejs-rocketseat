@@ -1,5 +1,8 @@
-import Categori from '../model/Categori';
-import { ICreateCategoriDTO, ICategoriRepository } from './ICategoriRepository';
+import Categori from '../../model/Categori';
+import {
+  ICreateCategoriDTO,
+  ICategoriRepository,
+} from '../ICategoriRepository';
 
 class CategoryRepository implements ICategoriRepository {
   private categories: Categori[];

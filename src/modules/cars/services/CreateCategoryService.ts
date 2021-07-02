@@ -1,4 +1,4 @@
-import CategoriRepository from '../repositories/CategoriRepository';
+import CategoriRepository from '../repositories/fake/CategoriRepository';
 
 interface IRequest {
   name: string;
