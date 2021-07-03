@@ -1,18 +1,34 @@
 import csvParser from 'csv-parser';
 import fs from 'fs';
 
+interface IImportCategory {
+  name: string;
+  description: string;
+}
 class ImportCategoryUseCase {
-  execulte(file: Express.Multer.File): void {
-    const parse = csvParser({
-      separator: ',',
-    });
-    const stream = fs.createReadStream(file.path);
+  loadCategory(file: Express.Multer.File): Promise<IImportCategory[]> {
+    return new Promise((resolve, reject) => {
+      const stream = fs.createReadStream(file.path);
+      const categories: IImportCategory[] = [];
 
-    stream.pipe(parse);
+      const parse = csvParser();
 
-    parse.on('data', async (line) => {
-      console.log(line);
+      stream.pipe(parse);
+
+      parse
+        .on('data', async (line) => {
+          categories.push(line);
+        })
+        .on('end', () => {
+          resolve(categories);
+        })
+        .on('error', (err) => reject(err));
     });
+  }
+  async execulte(file: Express.Multer.File): Promise<void> {
+    const categories = await this.loadCategory(file);
+
+    console.log(categories);
   }
 }
 
