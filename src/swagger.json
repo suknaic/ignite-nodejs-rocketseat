@@ -43,6 +43,37 @@
             "description": "Category alredy Existis"
           }
         }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "List all Category",
+        "description": "List all Category",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type":"object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Category alredy Existis"
+          }
+        }
       }
     }
   }
