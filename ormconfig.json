@@ -1,7 +1,13 @@
 {
   "type": "postgres",
+  "port": 5432,
   "host": "localhost",
-  "username": "",
-  "password": "",
-  "database": "ignitenode"
+  "username": "postgres",
+  "password": "docker",
+  "database": "ignitenode",
+  "migrations": ["./src/database/migrations/*.ts"],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+
 }
