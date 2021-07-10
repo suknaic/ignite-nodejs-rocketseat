@@ -1,4 +1,4 @@
-import Categori from '../model/Categori';
+import Categori from '../entities/Categori';
 
 interface ICreateCategoriDTO {
   name: string;
@@ -6,9 +6,9 @@ interface ICreateCategoriDTO {
 }
 
 interface ICategoriRepository {
-  create({ name, description }: ICreateCategoriDTO): void;
-  list(): Categori[];
-  findByName(name: string): Categori;
+  create({ name, description }: ICreateCategoriDTO): Promise<void>;
+  list(): Promise<Categori[]>;
+  findByName(name: string): Promise<Categori>;
 }
 
 export { ICategoriRepository, ICreateCategoriDTO };
