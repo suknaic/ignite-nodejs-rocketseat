@@ -1,11 +1,17 @@
-import Categori from '../../model/Categori';
-import CategoryRepository from '../../repositories/fake/CategoriRepository';
+import { inject, injectable } from 'tsyringe';
 
+import Categori from '../../entities/Categori';
+import { ICategoriRepository } from '../../repositories/ICategoriRepository';
+
+@injectable()
 class ListCategoryUseCase {
-  constructor(private categoryRepository: CategoryRepository) {}
+  constructor(
+    @inject('ICategoriRepository')
+    private categoryRepository: ICategoriRepository
+  ) {}
 
-  execulte(): Categori[] {
-    const categories = this.categoryRepository.list();
+  async execulte(): Promise<Categori[]> {
+    const categories = await this.categoryRepository.list();
 
     return categories;
   }

@@ -4,11 +4,11 @@ import { container } from 'tsyringe';
 import { ImportCategoryUseCase } from './ImportCategoriUseCase';
 
 class ImportCategoryController {
-  handle(request: Request, response: Response): Response {
+  async handle(request: Request, response: Response): Promise<Response> {
     const { file } = request;
 
     const importCategoryUseCase = container.resolve(ImportCategoryUseCase);
-    importCategoryUseCase.execulte(file);
+    await importCategoryUseCase.execulte(file);
 
     return response.send();
   }
