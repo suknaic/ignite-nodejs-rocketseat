@@ -1,14 +1,14 @@
 import csvParser from 'csv-parser';
 import fs from 'fs';
 
-import CategoryRepository from '../../repositories/fake/CategoriRepository';
+import { ICategoriRepository } from '../../repositories/ICategoriRepository';
 
 interface IImportCategory {
   name: string;
   description: string;
 }
 class ImportCategoryUseCase {
-  constructor(private categoryRepository: CategoryRepository) {}
+  constructor(private categoryRepository: ICategoriRepository) {}
   loadCategory(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
       const stream = fs.createReadStream(file.path);
@@ -35,10 +35,12 @@ class ImportCategoryUseCase {
     categories.map(async (category) => {
       const { name, description } = category;
 
-      const categoryAlredyExists = this.categoryRepository.findByName(name);
+      const categoryAlredyExists = await this.categoryRepository.findByName(
+        name
+      );
 
       if (!categoryAlredyExists) {
-        this.categoryRepository.create({ name, description });
+        await this.categoryRepository.create({ name, description });
       }
     });
   }
