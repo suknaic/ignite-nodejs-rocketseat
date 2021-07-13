@@ -13,14 +13,12 @@ class UserRepository implements IUSerRepository {
 
   async create({
     name,
-    username,
     driver_license,
     email,
     password,
   }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
       name,
-      username,
       email,
       driver_license,
       password,
