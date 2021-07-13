@@ -25,7 +25,7 @@ class User {
   isAdmin: boolean;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_At: Date;
 
   constructor() {
     if (!this.id) {
