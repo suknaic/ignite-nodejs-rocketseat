@@ -6,7 +6,7 @@
   "password": "docker",
   "database": "ignitenode",
   "entities": [
-    "./src/modules/cars/entities/*.ts"
+    "./src/modules/*/entities/*.ts"
   ],
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
