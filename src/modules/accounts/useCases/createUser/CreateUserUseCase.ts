@@ -31,7 +31,6 @@ class CreateUserUseCase {
       email,
       password: passwordHash,
       driver_license,
-      avatar: null,
     });
   }
 }
