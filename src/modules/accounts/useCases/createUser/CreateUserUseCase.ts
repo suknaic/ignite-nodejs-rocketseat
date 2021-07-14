@@ -1,6 +1,7 @@
 import { hash } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
+import { AppError } from '../../../../error/AppError';
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
 import { IUSerRepository } from '../../repositories/IUserRepository';
 
@@ -22,7 +23,7 @@ class CreateUserUseCase {
     const emailAlredyExists = await this.userRepository.findByEmail(email);
 
     if (emailAlredyExists) {
-      throw new Error('Email alredy existis');
+      throw new AppError('Email alredy existis');
     }
 
     await this.userRepository.create({
