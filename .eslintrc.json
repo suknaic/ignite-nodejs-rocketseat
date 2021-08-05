@@ -59,9 +59,10 @@
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.js"] }
+      { "devDependencies": [true, "**/*.spec.js"] }
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off"
+
   },
   "settings": {
     "import/resolver": {
