@@ -1,7 +1,6 @@
+import Categori from '@modules/cars/entities/Categori';
+import { ICategoriRepository } from '@modules/cars/repositories/ICategoriRepository';
 import { inject, injectable } from 'tsyringe';
-
-import Categori from '../../entities/Categori';
-import { ICategoriRepository } from '../../repositories/ICategoriRepository';
 
 @injectable()
 class ListCategoryUseCase {
