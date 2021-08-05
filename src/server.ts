@@ -3,7 +3,8 @@ import express, { NextFunction, Response, Request } from 'express';
 import 'express-async-errors';
 import swaggerUI from 'swagger-ui-express';
 
-import { AppError } from './error/AppError';
+import { AppError } from '@error/AppError';
+
 import { routes } from './routes';
 import swaggerFile from './swagger.json';
 
