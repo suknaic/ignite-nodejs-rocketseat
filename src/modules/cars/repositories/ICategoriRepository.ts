@@ -1,4 +1,4 @@
-import Categori from '../entities/Categori';
+import Categori from '@modules/cars/infra/typeorm/entities/Categori';
 
 interface ICreateCategoriDTO {
   name: string;

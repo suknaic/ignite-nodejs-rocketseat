@@ -8,7 +8,7 @@
       "@modules/*": ["modules/*"],
       "@config/*": ["config/*"],
       "@shared/*": ["shared/*"],
-      "@error/*": ["error/*"],
+      "@error/*": ["shared/error/*"],
       "@utils/*": ["utils/*"]
     },
     "esModuleInterop": true,

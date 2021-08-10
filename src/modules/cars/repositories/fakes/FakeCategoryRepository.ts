@@ -1,4 +1,4 @@
-import Categori from '../../entities/Categori';
+import Categori from '../../infra/typeorm/entities/Categori';
 import {
   ICreateCategoriDTO,
   ICategoriRepository,
