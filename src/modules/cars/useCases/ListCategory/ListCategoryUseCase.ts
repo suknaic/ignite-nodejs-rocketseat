@@ -1,4 +1,4 @@
-import Categori from '@modules/cars/entities/Categori';
+import { Category } from '@modules/cars/infra/typeorm/entities/Categori';
 import { ICategoriRepository } from '@modules/cars/repositories/ICategoriRepository';
 import { inject, injectable } from 'tsyringe';
 
@@ -9,7 +9,7 @@ class ListCategoryUseCase {
     private categoryRepository: ICategoriRepository
   ) {}
 
-  async execulte(): Promise<Categori[]> {
+  async execulte(): Promise<Category[]> {
     const categories = await this.categoryRepository.list();
 
     return categories;
