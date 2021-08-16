@@ -7,7 +7,7 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from 'typeorm';
-import { Category } from './Categori';
+import { Category } from './Category';
 @Entity('cars')
 class Car {
   @PrimaryColumn()
@@ -23,7 +23,7 @@ class Car {
   daily_rate: number;
 
   @Column()
-  available: true;
+  available: boolean;
 
   @Column()
   license_plate: string;
@@ -35,7 +35,7 @@ class Car {
   brand: string;
 
   @ManyToOne(() => Category)
-  @JoinColumn({ name: 'category_id' })
+  @JoinColumn({ name: 'category_id', referencedColumnName: 'id' })
   Category: Category;
 
   @Column()
@@ -47,6 +47,7 @@ class Car {
   constructor() {
     if (!this.id) {
       this.id = v4();
+      this.available = true;
     }
   }
 }
