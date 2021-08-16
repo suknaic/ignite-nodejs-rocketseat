@@ -33,11 +33,8 @@ class CarRepository implements ICarRepository {
     return car;
   }
 
-  findByLincesencePlate(license_plate: string): Promise<Car> {
-    const car = this.repository.findOne({
-      license_plate,
-    });
-
+  async findByLincesencePlate(license_plate: string): Promise<Car> {
+    const car = await this.repository.findOne({ license_plate });
     return car;
   }
 }
