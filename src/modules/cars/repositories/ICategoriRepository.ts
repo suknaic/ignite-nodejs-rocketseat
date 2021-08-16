@@ -1,4 +1,4 @@
-import Categori from '@modules/cars/infra/typeorm/entities/Categori';
+import { Category } from '@modules/cars/infra/typeorm/entities/Category';
 
 interface ICreateCategoriDTO {
   name: string;
@@ -7,8 +7,8 @@ interface ICreateCategoriDTO {
 
 interface ICategoriRepository {
   create({ name, description }: ICreateCategoriDTO): Promise<void>;
-  list(): Promise<Categori[]>;
-  findByName(name: string): Promise<Categori>;
+  list(): Promise<Category[]>;
+  findByName(name: string): Promise<Category>;
 }
 
 export { ICategoriRepository, ICreateCategoriDTO };
