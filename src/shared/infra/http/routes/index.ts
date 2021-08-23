@@ -4,7 +4,7 @@ import { authenticateRoutes } from './authenticate.routes';
 import { categoriRoutes } from './categori.routes';
 import { specificationRouter } from './specification.routes';
 import { usersRouter } from './users.routes';
-import { carsRoutes } from './cars.route';
+import { carsRoutes } from './cars.routes';
 
 const routes = Router();
 
