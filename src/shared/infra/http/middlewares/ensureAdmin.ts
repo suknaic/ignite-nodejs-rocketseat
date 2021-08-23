@@ -12,7 +12,7 @@ export async function ensureAdmin(
   const userRepository = new UserRepository();
   const user = await userRepository.findById(id);
 
-  if (!user.isAdmin) {
+  if (!user.isadmin) {
     throw new AppError("User isn't admin");
   }
 
