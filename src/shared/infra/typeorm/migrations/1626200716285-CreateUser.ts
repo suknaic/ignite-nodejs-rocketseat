@@ -32,12 +32,12 @@ export class CreateUser1626200716285 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'isAdmin',
+            name: 'isadmin',
             type: 'boolean',
             default: false,
           },
           {
-            name: 'created_At',
+            name: 'created_at',
             type: 'timestamp',
             default: 'Now()',
           },

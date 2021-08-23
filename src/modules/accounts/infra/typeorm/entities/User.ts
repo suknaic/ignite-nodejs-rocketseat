@@ -19,13 +19,13 @@ class User {
   driver_license: string;
 
   @Column()
-  isAdmin: boolean;
+  isadmin: boolean;
 
   @Column()
   avatar: string;
 
   @CreateDateColumn()
-  created_At: Date;
+  created_at: Date;
 
   constructor() {
     if (!this.id) {
