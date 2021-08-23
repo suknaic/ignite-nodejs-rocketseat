@@ -8,8 +8,10 @@ import { AppError } from '@error/AppError';
 import { routes } from './routes';
 import swaggerFile from '../../../swagger.json';
 
-import '../typeorm';
+import createConnection from '../typeorm';
 import '@shared/container';
+
+createConnection('localhost');
 
 const app = express();
 
