@@ -11,7 +11,7 @@ import swaggerFile from '../../../swagger.json';
 import createConnection from '../typeorm';
 import '@shared/container';
 
-createConnection('localhost');
+createConnection();
 
 const app = express();
 
